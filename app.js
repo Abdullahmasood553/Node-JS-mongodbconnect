@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://localhost/nodekb', { useNewUrlParser: true,useUnifiedTopology: true });
 let db = mongoose.connection;
@@ -21,6 +22,10 @@ const app = express();
 // EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
+
+
+// Body parser Middleware
+app.use(bodyParser.urlencoded({ extended:false }));
 
 // Routes
 app.use('/', require('./routes/index'));

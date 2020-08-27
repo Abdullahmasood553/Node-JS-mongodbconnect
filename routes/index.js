@@ -46,4 +46,21 @@ router.get('/', (req, res) => {
     });
 });
 
+
+// Add Route
+router.post('/users/register', function(req, res) {
+    let article = new Article();
+     article.title = req.body.title;
+     article.author = req.body.author;
+     article.save((err) => {
+         if(err) {
+             console.log(err);
+             return;
+         } else {
+             console.log('Submitted');
+         }
+     });
+    // console.log(req.body.title);
+});
+
 module.exports = router; 
