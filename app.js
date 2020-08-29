@@ -32,6 +32,7 @@ app.use(bodyParser.json());
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/article', require('./routes/article'));
+app.use('/public', express.static(__dirname + "/public"));
 
 
 const PORT = process.env.PORT || 5000;

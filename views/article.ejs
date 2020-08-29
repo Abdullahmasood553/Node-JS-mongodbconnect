@@ -7,3 +7,7 @@
 <h5>Written By: <%= article.author %></h5>
 
 <p><%= article.body %></p>
+
+<hr>
+<a href="/article/edit/<%= article._id %>" class="btn btn-default">EDIT</a>
+<a href="#" class="btn btn-danger delete-article" data-id="<%= article._id %>">DELETE</a>
