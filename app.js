@@ -26,10 +26,13 @@ app.set('view engine', 'ejs');
 
 // Body parser Middleware
 app.use(bodyParser.urlencoded({ extended:false }));
+app.use(bodyParser.json());
 
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/article', require('./routes/article'));
+
 
 const PORT = process.env.PORT || 5000;
 

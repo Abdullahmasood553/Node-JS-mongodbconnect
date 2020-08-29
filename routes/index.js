@@ -47,20 +47,41 @@ router.get('/', (req, res) => {
 });
 
 
+// Get Single Article
+// router.get('/article/:id', (req, res) => {
+//     Article.findById(req.params.id, (err, article) => {
+//         console.log(article);
+//         return;
+//     });
+// });
+
+router.get('/article/:id', function(req, res) {
+    Article.findById(req.params.id, function(err, article)   {
+        res.render('article', {
+            article: article
+        });
+    });
+});
+
+
 // Add Route
 router.post('/users/register', function(req, res) {
     let article = new Article();
      article.title = req.body.title;
      article.author = req.body.author;
+     article.body = req.body.body;
      article.save((err) => {
          if(err) {
              console.log(err);
              return;
          } else {
-             console.log('Submitted');
+             res.redirect('/');
          }
      });
     // console.log(req.body.title);
 });
 
 module.exports = router; 
+
+
+// npm install --save body-parser

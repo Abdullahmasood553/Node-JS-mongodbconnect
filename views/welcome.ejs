@@ -2,5 +2,5 @@
 
 
 <% for(var i=0; i<articles.length; i++){ %>
-    <h1><%= articles[i].author %></h1>
+    <h1><a href="/article/<%= articles[i]._id %>"><%= articles[i].title %></a></h1>
 <% } %>
